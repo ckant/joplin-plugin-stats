@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Download and process stats
         run: |
-          curl https://raw.githubusercontent.com/joplin/plugins/refs/heads/master/stats.json | jq '([."com.ckant.joplin-plugin-better-code-blocks"[].downloadCount ] | add | {"com.ckant.joplin-plugin-better-code-blocks": .}) * ([."com.ckant.joplin-plugin-editor-themes"[].downloadCount ] | add | {"com.ckant.joplin-plugin-editor-themes": .} )' > downloads.json
+          curl https://raw.githubusercontent.com/joplin/plugins/refs/heads/master/stats.json | jq '([."com.ckant.joplin-plugin-better-code-blocks"[].downloadCount ] | add | {"com.ckant.joplin-plugin-better-code-blocks": .}) * ([."com.ckant.joplin-plugin-editor-themes"[].downloadCount ] | add | {"com.ckant.joplin-plugin-editor-themes": .}) * ([."com.ckant.joplin-plugin-better-tables"[].downloadCount ] | add | {"com.ckant.joplin-plugin-better-tables": .})' > downloads.json
         working-directory: ${{ github.workspace }}
       - name: Commit and push downloads
         run: |
